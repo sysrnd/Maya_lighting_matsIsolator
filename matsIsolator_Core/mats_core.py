@@ -3,10 +3,12 @@ import maya.cmds as cmds
 class matsCore(object):
 
 	def __init__(self):
+
 		self.invalidMats = ['lambert1']
 
 	def main(self):
-		emptyMats_, emptySGs_ = self.scanUnassignedMats()
+		pass
+		#emptyMats_, emptySGs_ = self.scanUnassignedMats()
 
 	def scanUnassignedMats(self):
 		'''
@@ -26,10 +28,22 @@ class matsCore(object):
 		
 		return emptyMats, emptySGs
 
-	def assignMat(self):
-		pass
+	def scanUnassignedGeo(self):
 
-	def getSel(self):
-		sel = cmds.ls(sl=True)
+		blankGeo = []
+		for geo in cmds.ls(et='mesh'):
+			if cmds.listConnections(geo + '.instObjGroups')[0] == 'initialShadingGroup':
+				geoParent = cmds.listRelatives(geo, p=True)[0]
+				blankGeo.append(geoParent)
 
-		return sel
+		return blankGeo
+
+	def assignMat(self, geoParent, mat):
+
+		geo = cmds.listRelatives(geoParent, s=True)[0]
+		#mat = 
+		cmds.sets(geo, e=True, fe=mat)
+
+		
+		
+

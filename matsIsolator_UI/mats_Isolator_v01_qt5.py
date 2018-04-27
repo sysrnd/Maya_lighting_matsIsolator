@@ -2,7 +2,7 @@
 
 
 
-# Form implementation generated from reading ui file 'mats_Isolator_v01.ui'
+# Form implementation generated from reading ui file 'Z:\RnD\Pipeline\Maya\Scripts\Lighting\Maya_lighting_matsIsolator\matsIsolator_UI\resources\mats_Isolator_v01.ui'
 
 #
 
@@ -41,19 +41,45 @@ class Ui_window_mats_Isolator(object):
 
         window_mats_Isolator.resize(545, 671)
 
-        self.centralwidget = QtWidgets.QWidget(window_mats_Isolator)
+        self.lyt_grid_main = QtWidgets.QWidget(window_mats_Isolator)
 
-        self.centralwidget.setObjectName("centralwidget")
+        self.lyt_grid_main.setObjectName("lyt_grid_main")
 
-        self.gridLayout_2 = QtWidgets.QGridLayout(self.centralwidget)
+        self.gridLayout_2 = QtWidgets.QGridLayout(self.lyt_grid_main)
 
         self.gridLayout_2.setObjectName("gridLayout_2")
 
-        self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
+        self.btn_assign = QtWidgets.QPushButton(self.lyt_grid_main)
 
-        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
+        self.btn_assign.setMinimumSize(QtCore.QSize(0, 60))
 
-        self.label = QtWidgets.QLabel(self.centralwidget)
+        self.btn_assign.setObjectName("btn_assign")
+
+        self.gridLayout_2.addWidget(self.btn_assign, 4, 0, 1, 1)
+
+        self.lyt_horizontal_lists = QtWidgets.QHBoxLayout()
+
+        self.lyt_horizontal_lists.setObjectName("lyt_horizontal_lists")
+
+        self.list_geo = QtWidgets.QListWidget(self.lyt_grid_main)
+
+        self.list_geo.setObjectName("list_geo")
+
+        self.lyt_horizontal_lists.addWidget(self.list_geo)
+
+        self.list_mats = QtWidgets.QListWidget(self.lyt_grid_main)
+
+        self.list_mats.setObjectName("list_mats")
+
+        self.lyt_horizontal_lists.addWidget(self.list_mats)
+
+        self.gridLayout_2.addLayout(self.lyt_horizontal_lists, 3, 0, 1, 1)
+
+        self.lyt_horizontal_labels = QtWidgets.QHBoxLayout()
+
+        self.lyt_horizontal_labels.setObjectName("lyt_horizontal_labels")
+
+        self.lbl_geo = QtWidgets.QLabel(self.lyt_grid_main)
 
         font = QtGui.QFont()
 
@@ -63,13 +89,13 @@ class Ui_window_mats_Isolator(object):
 
         font.setWeight(50)
 
-        self.label.setFont(font)
+        self.lbl_geo.setFont(font)
 
-        self.label.setObjectName("label")
+        self.lbl_geo.setObjectName("lbl_geo")
 
-        self.horizontalLayout_2.addWidget(self.label)
+        self.lyt_horizontal_labels.addWidget(self.lbl_geo)
 
-        self.label_2 = QtWidgets.QLabel(self.centralwidget)
+        self.lbl_mats = QtWidgets.QLabel(self.lyt_grid_main)
 
         font = QtGui.QFont()
 
@@ -79,41 +105,31 @@ class Ui_window_mats_Isolator(object):
 
         font.setWeight(50)
 
-        self.label_2.setFont(font)
+        self.lbl_mats.setFont(font)
 
-        self.label_2.setObjectName("label_2")
+        self.lbl_mats.setObjectName("lbl_mats")
 
-        self.horizontalLayout_2.addWidget(self.label_2)
+        self.lyt_horizontal_labels.addWidget(self.lbl_mats)
 
-        self.gridLayout_2.addLayout(self.horizontalLayout_2, 0, 0, 1, 1)
+        self.gridLayout_2.addLayout(self.lyt_horizontal_labels, 2, 0, 1, 1)
 
         self.horizontalLayout = QtWidgets.QHBoxLayout()
 
         self.horizontalLayout.setObjectName("horizontalLayout")
 
-        self.listWidget = QtWidgets.QListWidget(self.centralwidget)
+        self.btn_reload = QtWidgets.QPushButton(self.lyt_grid_main)
 
-        self.listWidget.setObjectName("listWidget")
+        self.btn_reload.setObjectName("btn_reload")
 
-        self.horizontalLayout.addWidget(self.listWidget)
+        self.horizontalLayout.addWidget(self.btn_reload)
 
-        self.listWidget_2 = QtWidgets.QListWidget(self.centralwidget)
+        spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
 
-        self.listWidget_2.setObjectName("listWidget_2")
+        self.horizontalLayout.addItem(spacerItem)
 
-        self.horizontalLayout.addWidget(self.listWidget_2)
+        self.gridLayout_2.addLayout(self.horizontalLayout, 0, 0, 1, 1)
 
-        self.gridLayout_2.addLayout(self.horizontalLayout, 1, 0, 1, 1)
-
-        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-
-        self.pushButton.setMinimumSize(QtCore.QSize(0, 60))
-
-        self.pushButton.setObjectName("pushButton")
-
-        self.gridLayout_2.addWidget(self.pushButton, 2, 0, 1, 1)
-
-        window_mats_Isolator.setCentralWidget(self.centralwidget)
+        window_mats_Isolator.setCentralWidget(self.lyt_grid_main)
 
         self.menubar = QtWidgets.QMenuBar(window_mats_Isolator)
 
@@ -141,11 +157,13 @@ class Ui_window_mats_Isolator(object):
 
         window_mats_Isolator.setWindowTitle(_translate("window_mats_Isolator", "Materials Isolator", None))
 
-        self.label.setText(_translate("window_mats_Isolator", "Geometry", None))
+        self.btn_assign.setText(_translate("window_mats_Isolator", "Assign", None))
 
-        self.label_2.setText(_translate("window_mats_Isolator", "Unassigned materials", None))
+        self.lbl_geo.setText(_translate("window_mats_Isolator", "Geometry", None))
 
-        self.pushButton.setText(_translate("window_mats_Isolator", "Assign", None))
+        self.lbl_mats.setText(_translate("window_mats_Isolator", "Unassigned materials", None))
+
+        self.btn_reload.setText(_translate("window_mats_Isolator", "Reload", None))
 
 
 
